@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WellWise-M | Prediction Result</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Result</h1>
+
+        {% if error %}
+            <div class="error-box">
+                <h2>An Error Occurred</h2>
+                <p>{{ error }}</p>
+            </div>
+        {% elif data %}
+            <div class="result-box">
+                <p class="result-label">Predicted Life Expectancy</p>
+                <h2 class="result-value">{{ data.predicted_life_expectancy }} <span>years</span></h2>
+                <p class="model-info">(Raw model prediction: {{ data.base_model_prediction }} years)</p>
+            </div>
+
+            <div class="factors-grid">
+                <div class="factor-box positive">
+                    <h3>Positive Lifestyle Factors</h3>
+                    <ul>
+                        {% for factor in data.positive_factors %}
+                            <li>{{ factor.factor }} <span>(+{{ factor.impact }} years)</span></li>
+                        {% else %}
+                            <li>No significant positive factors identified.</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="factor-box negative">
+                    <h3>Areas for Improvement</h3>
+                    <ul>
+                         {% for factor in data.negative_factors %}
+                            <li>{{ factor.factor }} <span>({{ factor.impact }} years)</span></li>
+                        {% else %}
+                            <li>No significant negative factors identified. Keep it up!</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+
+        <a href="/" class="back-link">← Make a New Prediction</a>
+    </div>
+</body>
+</html>

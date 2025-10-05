@@ -1,0 +1,10 @@
+# Virtual Environments
+venv-data-science/
+venv-webapp/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# VS Code settings
+.vscode/

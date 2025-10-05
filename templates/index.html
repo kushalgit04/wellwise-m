@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WellWise-M | Health Data Input</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header-section">
+            <h1>WellWise-M</h1>
+        </div>
+        <p class="subtitle">Enter your health and lifestyle data to predict your life expectancy.</p>
+        
+        <form action="/predict" method="post">
+            <div class="form-grid">
+                <!-- Personal Details -->
+                <div class="form-group">
+                    <label for="Age">Age</label>
+                    <input type="number" id="Age" name="Age" required>
+                </div>
+                <div class="form-group">
+                    <label for="Gender">Gender</label>
+                    <select id="Gender" name="Gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Ethnicity">Ethnicity</label>
+                    <select id="Ethnicity" name="Ethnicity">
+                        <option value="North Indian">North Indian</option>
+                        <option value="South Indian">South Indian</option>
+                        <option value="Bengali">Bengali</option>
+                        <option value="Gujarati">Gujarati</option>
+                        <option value="Punjabi">Punjabi</option>
+                    </select>
+                </div>
+
+                <!-- Vitals -->
+                 <div class="form-group">
+                    <label for="Height">Height (cm)</label>
+                    <input type="number" id="Height" name="Height" required>
+                </div>
+                 <div class="form-group">
+                    <label for="Weight">Weight (kg)</label>
+                    <input type="number" id="Weight" name="Weight" required>
+                </div>
+                 <div class="form-group">
+                    <label for="BMI">BMI (Calculated)</label>
+                    <input type="number" step="0.1" id="BMI" name="BMI" required readonly>
+                </div>
+                 <div class="form-group">
+                    <label for="Blood_Pressure">Blood Pressure (e.g., 120/80)</label>
+                    <input type="text" id="Blood_Pressure" name="Blood Pressure" required>
+                </div>
+                 <div class="form-group">
+                    <label for="Resting_Heart_Rate">Resting Heart Rate</label>
+                    <input type="number" id="Resting_Heart_Rate" name="Resting Heart Rate" required>
+                </div>
+                 <div class="form-group">
+                    <label for="SpO2">SpO2 (%)</label>
+                    <input type="number" id="SpO2" name="SpO2" required>
+                </div>
+
+                <!-- Lifestyle & Diet -->
+                <div class="form-group">
+                    <label for="Smoking">Smoking Status</label>
+                    <select id="Smoking" name="Smoking">
+                        <option value="Daily">Daily</option>
+                        <option value="Occasionally">Occasionally</option>
+                        <option value="Never">Never</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Alcohol">Alcohol Consumption</label>
+                    <select id="Alcohol" name="Alcohol">
+                        <option value="Occasionally">Occasionally</option>
+                        <option value="Daily">Daily</option>
+                        <option value="Never">Never</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Diet_Type">Diet Type</label>
+                    <select id="Diet_Type" name="Diet Type">
+                        <option value="Non-Vegetarian">Non-Vegetarian</option>
+                        <option value="Vegetarian">Vegetarian</option>
+                        <option value="Vegan">Vegan</option>
+                        <option value="Mixed">Mixed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Protein_Intake">Protein Intake</label>
+                     <select id="Protein_Intake" name="Protein Intake">
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Junk_Food_Frequency">Junk Food Frequency</label>
+                     <select id="Junk_Food_Frequency" name="Junk Food Frequency">
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                        <option value="Never">Never</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Sugar_Intake">Sugar Intake</label>
+                     <select id="Sugar_Intake" name="Sugar Intake">
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+                 <div class="form-group">
+                    <label for="Diet_Quality">Diet Quality (Calculated)</label>
+                     <input type="text" id="Diet_Quality" name="Diet Quality" readonly>
+                </div>
+
+                <!-- Activity & Sleep -->
+                <div class="form-group">
+                    <label for="Sleep_Duration">Sleep Duration (hours)</label>
+                    <input type="number" step="0.1" id="Sleep_Duration" name="Sleep Duration" required>
+                </div>
+                <div class="form-group">
+                    <label for="Sleep_Quality">Sleep Quality (Calculated)</label>
+                    <input type="text" id="Sleep_Quality" name="Sleep Quality" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="Daily_Activity">Daily Activity (Steps)</label>
+                    <input type="number" name="Daily Activity" required>
+                </div>
+                <div class="form-group">
+                    <label for="Exercise_Type">Exercise Type</label>
+                    <select name="Exercise Type">
+                        <option value="Walking">Walking</option>
+                        <option value="None">None</option>
+                        <option value="Gym">Gym</option>
+                        <option value="Yoga">Yoga</option>
+                    </select>
+                </div>
+                
+                <!-- Medical & Environmental -->
+                <div class="form-group">
+                    <label for="Family_History">Family History</label>
+                    <select name="Family History">
+                        <option value="Heart Disease">Heart Disease</option>
+                        <option value="Diabetes">Diabetes</option>
+                        <option value="Cancer">Cancer</option>
+                        <option value="None">None</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Existing_Conditions">Existing Conditions</label>
+                    <select name="Existing Conditions">
+                        <option value="Hypertension">Hypertension</option>
+                        <option value="Asthma">Asthma</option>
+                        <option value="COPD">COPD</option>
+                        <option value="None">None</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Stress_Score">Stress Score (1-10)</label>
+                    <input type="number" name="Stress Score" min="1" max="10" required>
+                </div>
+                <div class="form-group">
+                    <label for="Anxiety_Level">Anxiety Level (1-10)</label>
+                    <input type="number" name="Anxiety Level" min="1" max="10" required>
+                </div>
+                <div class="form-group">
+                    <label for="Air_Quality_Index">Air Quality Index</label>
+                    <input type="number" id="Air_Quality_Index" name="Air Quality Index" required>
+                </div>
+                 <div class="form-group">
+                    <label for="Exposure">Environmental Exposure</label>
+                    <select name="Exposure">
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="location-container">
+                <label class="location-label">Location Details</label>
+                <div class="location-options">
+                    <button type="button" id="auto-location-btn" class="location-btn">📍 Use My Current Location</button>
+                    <button type="button" id="manual-location-btn" class="location-btn secondary">✍️ Enter Manually</button>
+                </div>
+                <div id="location-fields-manual" style="display: none;">
+                    <div class="form-grid-location">
+                        <div class="form-group">
+                            <label for="Urban_Rural">Location Type</label>
+                            <select id="Urban_Rural" name="Urban/Rural">
+                                <option value="Urban">Urban</option>
+                                <option value="Rural">Rural</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="State">State</label>
+                            <select id="State" name="State">
+                                <!-- Populated by JavaScript -->
+                            </select>
+                        </div>
+                         <div class="form-group">
+                            <label for="City">City</label>
+                            <select id="City" name="City">
+                                <!-- Populated by JavaScript -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Predict Life Expectancy</button>
+        </form>
+    </div>
+
+    <script>
+        // --- BMI Auto-Calculation Script ---
+        const heightInput = document.getElementById('Height');
+        const weightInput = document.getElementById('Weight');
+        const bmiInput = document.getElementById('BMI');
+
+        function calculateBmi() {
+            const height = parseFloat(heightInput.value);
+            const weight = parseFloat(weightInput.value);
+            if (height > 0 && weight > 0) {
+                const heightInMeters = height / 100;
+                const bmi = weight / (heightInMeters * heightInMeters);
+                bmiInput.value = bmi.toFixed(1);
+            } else {
+                bmiInput.value = '';
+            }
+        }
+        heightInput.addEventListener('input', calculateBmi);
+        weightInput.addEventListener('input', calculateBmi);
+        
+        // --- Diet Quality Auto-Calculation ---
+        const proteinInput = document.getElementById('Protein_Intake');
+        const junkInput = document.getElementById('Junk_Food_Frequency');
+        const sugarInput = document.getElementById('Sugar_Intake');
+        const dietQualityInput = document.getElementById('Diet_Quality');
+
+        function calculateDietQuality() {
+            let score = 0;
+            // Score protein intake
+            if (proteinInput.value === 'High') score += 2;
+            else if (proteinInput.value === 'Low') score -= 2;
+            
+            // Score junk food frequency
+            if (junkInput.value === 'Never') score += 2;
+            else if (junkInput.value === 'Low') score += 1;
+            else if (junkInput.value === 'High') score -= 2;
+            
+            // Score sugar intake
+            if (sugarInput.value === 'Low') score += 2;
+            else if (sugarInput.value === 'High') score -= 2;
+            
+            // Determine quality based on final score
+            if (score >= 3) {
+                dietQualityInput.value = 'High';
+            } else if (score <= -3) {
+                dietQualityInput.value = 'Low';
+            } else {
+                dietQualityInput.value = 'Medium';
+            }
+        }
+
+        proteinInput.addEventListener('input', calculateDietQuality);
+        junkInput.addEventListener('input', calculateDietQuality);
+        sugarInput.addEventListener('input', calculateDietQuality);
+        
+        // --- Sleep Quality Auto-Calculation ---
+        const sleepDurationInput = document.getElementById('Sleep_Duration');
+        const sleepQualityInput = document.getElementById('Sleep_Quality');
+
+        function calculateSleepQuality() {
+            const duration = parseFloat(sleepDurationInput.value);
+            if (duration >= 7.5) {
+                sleepQualityInput.value = 'Good';
+            } else if (duration < 6.5) {
+                sleepQualityInput.value = 'Poor';
+            } else {
+                sleepQualityInput.value = 'Average';
+            }
+        }
+        sleepDurationInput.addEventListener('input', calculateSleepQuality);
+        
+        // Initial calculations on page load
+        calculateBmi();
+        calculateDietQuality();
+        calculateSleepQuality();
+
+        // --- UPDATED: Full State/City Data from Training Script ---
+        const stateCityData = {
+            'Andhra Pradesh': ['Visakhapatnam', 'Vijayawada', 'Tirupati'], 'Arunachal Pradesh': ['Itanagar', 'Naharlagun'], 'Assam': ['Guwahati', 'Dibrugarh', 'Silchar'], 'Bihar': ['Patna', 'Gaya', 'Bhagalpur'], 'Chhattisgarh': ['Raipur', 'Bhilai', 'Bilaspur'], 'Goa': ['Panaji', 'Margao'], 'Gujarat': ['Ahmedabad', 'Surat', 'Vadodara'], 'Haryana': ['Faridabad', 'Gurugram', 'Chandigarh'], 'Himachal Pradesh': ['Shimla', 'Dharamshala'], 'Jharkhand': ['Ranchi', 'Jamshedpur', 'Dhanbad'], 'Karnataka': ['Bengaluru', 'Mysore', 'Mangalore'], 'Kerala': ['Thiruvananthapuram', 'Kochi', 'Kozhikode'], 'Madhya Pradesh': ['Indore', 'Bhopal', 'Gwalior'], 'Maharashtra': ['Mumbai', 'Pune', 'Nagpur'], 'Manipur': ['Imphal'], 'Meghalaya': ['Shillong'], 'Mizoram': ['Aizawl'], 'Nagaland': ['Kohima', 'Dimapur'], 'Odisha': ['Bhubaneswar', 'Cuttack', 'Rourkela'], 'Punjab': ['Ludhiana', 'Amritsar'], 'Rajasthan': ['Jaipur', 'Jodhpur', 'Udaipur'], 'Sikkim': ['Gangtok'], 'Tamil Nadu': ['Chennai', 'Coimbatore', 'Madurai'], 'Telangana': ['Hyderabad', 'Warangal'], 'Tripura': ['Agartala'], 'Uttar Pradesh': ['Lucknow', 'Kanpur', 'Ghaziabad'], 'Uttarakhand': ['Dehradun', 'Haridwar'], 'West Bengal': ['Kolkata', 'Siliguri', 'Darjeeling'], 'Delhi': ['Delhi']
+        };
+
+        const stateSelect = document.getElementById('State');
+        const citySelect = document.getElementById('City');
+        
+        // Populate states on page load
+        for (const state in stateCityData) {
+            stateSelect.add(new Option(state, state));
+        }
+
+        function updateCities() {
+            const selectedState = stateSelect.value;
+            const cities = stateCityData[selectedState] || [];
+            
+            citySelect.innerHTML = '';
+            
+            for (const city of cities) {
+                citySelect.add(new Option(city, city));
+            }
+        }
+        
+        stateSelect.addEventListener('change', updateCities);
+        updateCities();
+
+        // --- Geolocation and API Fetching Script ---
+        const autoBtn = document.getElementById('auto-location-btn');
+        const manualBtn = document.getElementById('manual-location-btn');
+        const manualFields = document.getElementById('location-fields-manual');
+        const aqiInput = document.getElementById('Air_Quality_Index');
+        const urbanRuralSelect = document.getElementById('Urban_Rural');
+
+        const AQI_API_KEY = 'd6d75d5e533c1d5308b2c45f9435c4a4'; 
+
+        manualBtn.addEventListener('click', () => {
+            manualFields.style.display = 'block';
+        });
+
+        autoBtn.addEventListener('click', () => {
+            if (!navigator.geolocation) {
+                alert('Geolocation is not supported by your browser.');
+                return;
+            }
+
+            autoBtn.textContent = 'Fetching...';
+            autoBtn.disabled = true;
+            manualBtn.disabled = true;
+
+            navigator.geolocation.getCurrentPosition(async (position) => {
+                const { latitude, longitude } = position.coords;
+
+                try {
+                    const geoResponse = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`);
+                    const geoData = await geoResponse.json();
+                    
+                    if (geoData.address) {
+                        const state = geoData.address.state;
+                        const city = geoData.address.city || geoData.address.town;
+                        const locationType = (geoData.address.city || geoData.address.town) ? 'Urban' : 'Rural';
+
+                        urbanRuralSelect.value = locationType;
+                        
+                        if (state && stateCityData[state]) {
+                           stateSelect.value = state;
+                           updateCities(); // Update the city list for the detected state
+                           if (city && [...citySelect.options].some(o => o.value === city)) {
+                               citySelect.value = city;
+                           }
+                        }
+                        manualFields.style.display = 'block';
+                    }
+                } catch (error) {
+                    console.error('Error fetching location:', error);
+                    alert('Could not fetch location details.');
+                }
+
+                if (AQI_API_KEY === 'd6d75d5e533c1d5308b2c45f9435c4a4') {
+                     try {
+                        const aqiResponse = await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=${AQI_API_KEY}`);
+                        const aqiData = await aqiResponse.json();
+                        if (aqiData.list && aqiData.list.length > 0) {
+                            const aqiValue = aqiData.list[0].main.aqi;
+                            const aqiStandardScale = (aqiValue - 1) * 100;
+                            aqiInput.value = aqiStandardScale > 0 ? aqiStandardScale : 50;
+                        }
+                    } catch (error) {
+                         console.error('Error fetching AQI:', error);
+                         alert('Could not fetch AQI data.');
+                    }
+                } else {
+                   alert('Please add your OpenWeatherMap API key to the script to fetch AQI data.');
+                }
+
+                autoBtn.textContent = '📍 Use My Current Location';
+                autoBtn.disabled = false;
+                manualBtn.disabled = false;
+            }, (error) => {
+                console.error('Geolocation error:', error);
+                alert('Could not get your location. Please ensure you have granted permission.');
+                autoBtn.textContent = '📍 Use My Current Location';
+                autoBtn.disabled = false;
+                manualBtn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
+
