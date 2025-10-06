@@ -18,7 +18,7 @@ user_data = {
     "Resting Heart Rate": 80,
     "SpO2": 99,
     "Diet Type": "Non-Vegetarian",
-    "Protein Intake": "Medium",
+    "Protein Intake": "Mediu0m",
     "Junk Food Frequency": "High",
     "Sugar Intake": "High",
     "Diet Quality": "Low",
