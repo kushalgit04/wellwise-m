@@ -6,7 +6,7 @@ WellWise-M predicts a person's estimated life expectancy from health, lifestyle,
 
 ---
 
-## ✨ Features
+## Features
 - **Custom synthetic dataset generator** — models realistic health/lifestyle profiles using state-specific baselines (life expectancy, AQI, median age) for all 28 Indian states, with logically-derived fields (e.g. Diet Quality computed from protein/junk food/sugar intake, rather than random).
 - **LightGBM regression model** trained on 25,000+ synthetic records to predict life expectancy.
 - **Flask JSON API** (`app1.py`) — send health data, get a prediction back, built for programmatic/frontend integration (CORS-enabled for use with React, ngrok, etc.).
@@ -15,7 +15,7 @@ WellWise-M predicts a person's estimated life expectancy from health, lifestyle,
 
 ---
 
-## 🏗️ How It Works
+## How It Works
 
 ```
 scripts/generate_data.py
@@ -119,7 +119,7 @@ POST /predict
 
 ---
 
-## 🧰 Tech Stack
+##  Tech Stack
 `Python` · `Flask` · `Flask-CORS` · `LightGBM` · `scikit-learn` · `Pandas` / `NumPy` · `joblib` · `HTML/CSS`
 
 ---
@@ -131,8 +131,3 @@ POST /predict
 
 ---
 
-## 📄 License
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🙋 Author
-**Your Name** — building ML-powered health tools. Feel free to connect on [LinkedIn](#) or check out more projects on [GitHub](#).
