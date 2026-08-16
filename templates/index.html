@@ -373,7 +373,7 @@
                     alert('Could not fetch location details.');
                 }
 
-                if (AQI_API_KEY === 'd6d75d5e533c1d5308b2c45f9435c4a4') {
+                if (AQI_API_KEY === 'XYZ') {
                      try {
                         const aqiResponse = await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=${AQI_API_KEY}`);
                         const aqiData = await aqiResponse.json();
