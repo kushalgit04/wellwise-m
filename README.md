@@ -123,11 +123,5 @@ POST /predict
 `Python` · `Flask` · `Flask-CORS` · `LightGBM` · `scikit-learn` · `Pandas` / `NumPy` · `joblib` · `HTML/CSS`
 
 ---
-
-## 🛠️ Known Issues / Roadmap
-- **Security:** `templates/index.html` currently has a hardcoded OpenWeatherMap API key used for client-side AQI lookups. This needs to be rotated and moved out of the shipped frontend code (e.g. proxied through the Flask backend using an environment variable) before this key is exposed publicly.
-- **Frontend/backend integration:** `index.html`/`result.html` are built to display a richer response (positive/negative lifestyle factors, raw vs. adjusted prediction), but `app1.py`'s `/predict` endpoint currently returns only the raw prediction. These need to be reconciled — either simplify the templates or extend the API response.
-- **Planned:** wire the HTML form directly to `app1.py` so predictions can be made through the browser, not just the JSON API.
-
----
-
+## Project Info
+This is a part of a hackathon project which is a web app. 
